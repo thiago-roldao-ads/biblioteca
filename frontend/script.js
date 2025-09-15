@@ -79,4 +79,4 @@ async function deletarLivro(id) {
 }
 
 // Carrega livros ao abrir a página
-//window.onload = listarLivros;
+window.onload = listarLivros;
