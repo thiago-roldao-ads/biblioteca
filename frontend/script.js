@@ -16,12 +16,6 @@ async function adicionarLivro() {
     if (res.ok) {
         alert('Livro adicionado!');
         listarLivros();
-
-        document.getElementById('titulo').value = '';
-        document.getElementById('autor').value = '';
-        document.getElementById('ano').value = '';
-
-        document.getElementById('titulo').focus();
     } else {
         const erro = await res.json();
         alert(`Erro: ${erro.erro}`);
