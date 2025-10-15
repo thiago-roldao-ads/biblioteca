@@ -37,7 +37,7 @@ async function listarLivros() {
         btnDel.textContent = 'Excluir';
         btnDel.onclick = () => deletarLivro(livro._id);
 
-        li.appendChild(btnDel);
+        //li.appendChild(btnDel);
         lista.appendChild(li);
     });
 }
@@ -55,10 +55,12 @@ async function buscarLivros() {
         li.textContent = `${livro.titulo} - ${livro.autor} (${livro.ano || 'Sem ano'})`;
 
         const btnDel = document.createElement('button');
+        
+        
         btnDel.textContent = 'Excluir';
         btnDel.onclick = () => deletarLivro(livro._id);
 
-        li.appendChild(btnDel);
+        //li.appendChild(btnDel);
         lista.appendChild(li);
     });
 }
@@ -73,4 +75,4 @@ async function deletarLivro(id) {
 }
 
 // Carrega livros ao abrir a página
-window.onload = listarLivros;
+//window.onload = listarLivros;
