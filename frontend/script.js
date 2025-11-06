@@ -1,9 +1,13 @@
 const API_URL = 'http://localhost:5000/api/livros';
 
 async function adicionarLivro() {
-    const titulo = document.getElementById('titulo').value;
-    const autor = document.getElementById('autor').value;
-    const ano = document.getElementById('ano').value;
+    const tituloInput = document.getElementById('titulo'); // Captura o elemento
+    const autorInput = document.getElementById('autor');   // Captura o elemento
+    const anoInput = document.getElementById('ano');       // Captura o elemento
+    
+    const titulo = tituloInput.value;
+    const autor = autorInput.value;
+    const ano = anoInput.value;
 
     const livro = { titulo, autor, ano: parseInt(ano) };
 
@@ -16,6 +20,9 @@ async function adicionarLivro() {
     if (res.ok) {
         alert('Livro adicionado!');
         listarLivros();
+        tituloInput.value = '';
+        autorInput.value = '';
+        anoInput.value = '';
     } else {
         const erro = await res.json();
         alert(`Erro: ${erro.erro}`);
@@ -37,7 +44,7 @@ async function listarLivros() {
         btnDel.textContent = 'Excluir';
         btnDel.onclick = () => deletarLivro(livro._id);
 
-        //li.appendChild(btnDel);
+        li.appendChild(btnDel);
         lista.appendChild(li);
     });
 }
@@ -60,7 +67,7 @@ async function buscarLivros() {
         btnDel.textContent = 'Excluir';
         btnDel.onclick = () => deletarLivro(livro._id);
 
-        //li.appendChild(btnDel);
+        li.appendChild(btnDel);
         lista.appendChild(li);
     });
 }
@@ -75,4 +82,4 @@ async function deletarLivro(id) {
 }
 
 // Carrega livros ao abrir a página
-//window.onload = listarLivros;
+window.onload = listarLivros;
